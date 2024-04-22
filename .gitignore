@@ -1,2 +1,4 @@
 /be/node_modules
 /fe/node_modules
+# /be/.next
+/fe/.next
