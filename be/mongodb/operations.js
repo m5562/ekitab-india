@@ -1,11 +1,11 @@
 import { mongoConnect } from "./connection.js";
-import UserCred from "./models/index.js";
+import { adminSchema, userSchema } from "./models/index.js";
 import { createHash, compareHash } from "./../helpers/bcrypt.js";
 
 mongoConnect();
 
 const findUserByEmail = async (email) => {
-  return await UserCred.findOne({ email });
+  return await userSchema.findOne({ email });
 };
 
 const createUserByEmailAndPassword = async (name, email, password) => {
@@ -15,7 +15,7 @@ const createUserByEmailAndPassword = async (name, email, password) => {
   }
   try {
     const hashedPassword = await createHash(password);
-    const user = await new UserCred({
+    const user = await new userSchema({
       name,
       email,
       password: hashedPassword,
@@ -28,18 +28,26 @@ const createUserByEmailAndPassword = async (name, email, password) => {
 };
 
 const findAllUser = async () => {
-  const data = await UserCred.find();
+  const data = await userSchema.find();
   const allUserData = [];
   data.forEach((user) => {
-    // console.log(data);
     allUserData.push({
       id: user._id.toString(),
       name: user.name,
       email: user.email,
       points: user.profile.points,
     });
-    // console.log(allUserData);
   });
   return allUserData;
 };
-export { createUserByEmailAndPassword, findUserByEmail, findAllUser };
+
+const saveAdmin = async ({ email, name, password }) => {
+  const data = await new adminSchema({ email, name, password });
+  return await data.save();
+};
+export {
+  createUserByEmailAndPassword,
+  saveAdmin,
+  findUserByEmail,
+  findAllUser,
+};

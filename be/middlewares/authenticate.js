@@ -3,14 +3,17 @@ import { loginWithEmailAndPassword } from "../auth/index.js";
 const authenticate = async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
-    return res.status(400).json({ errMessage: "This is not a valid request." });
+    return res.status(400).send({ errMessage: "This is not a valid request." });
   }
-  const data = await loginWithEmailAndPassword(email, password);
-  if (data.errMessage) {
-    res.status(data.errCode).send(({ errMessage } = data));
-  }
-  res.locals.userId = data.id;
-  next();
+  loginWithEmailAndPassword(email, password).then((result) => {
+    if (result.errMessage) {
+      res.status(result.errCode).send({ errMessage: result.errMessage });
+    } else {
+      console.log(result);
+      res.locals.user = result;
+      next();
+    }
+  });
 };
 
 export { authenticate };

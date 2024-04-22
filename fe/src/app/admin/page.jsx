@@ -16,7 +16,7 @@ const page = () => {
             <div className="text-5xl font-bold">{subscriber}</div>
             <div className="text-stone-400 flex items-center justify-between">
               <span>Test</span>
-              <Link href={"/addtest"} className="icon text-2xl">
+              <Link href={"/admin/contents/upload"} className="icon text-2xl">
                 add
               </Link>
             </div>
@@ -25,43 +25,34 @@ const page = () => {
         <div className="rounded-lg border border-solid border-stone-300 p-4">
           <div className="h-24 flex flex-col justify-between">
             <div className="text-5xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Videos</div>
+            <div className="text-stone-400 flex items-center justify-between">
+              <span>Videos</span>
+              <Link href={"/addtest"} className="icon text-2xl">
+                movie
+              </Link>
+            </div>
           </div>
         </div>
         <div className="rounded-lg border border-solid border-stone-300 p-4">
           <div className="h-24 flex flex-col justify-between">
             <div className="text-6xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Notifications</div>
+            <div className="text-stone-400 flex items-center justify-between">
+              <span>Notifications</span>
+              <Link href={"/admin/contents/upload"} className="icon text-2xl">
+                notifications
+              </Link>
+            </div>
           </div>
         </div>
         <div className="rounded-lg border border-solid border-stone-300 p-4">
           <div className="h-24 flex flex-col justify-between">
             <div className="text-6xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Subscriber</div>
-          </div>
-        </div>
-        <div className="rounded-lg border border-solid border-stone-300 p-4">
-          <div className="h-24 flex flex-col justify-between">
-            <div className="text-6xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Subscriber</div>
-          </div>
-        </div>
-        <div className="rounded-lg border border-solid border-stone-300 p-4">
-          <div className="h-24 flex flex-col justify-between">
-            <div className="text-6xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Subscriber</div>
-          </div>
-        </div>
-        <div className="rounded-lg border border-solid border-stone-300 p-4">
-          <div className="h-24 flex flex-col justify-between">
-            <div className="text-6xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Subscriber</div>
-          </div>
-        </div>
-        <div className="rounded-lg border border-solid border-stone-300 p-4">
-          <div className="h-24 flex flex-col justify-between">
-            <div className="text-6xl font-bold">{subscriber}</div>
-            <div className="text-stone-400">Subscriber</div>
+            <div className="text-stone-400 flex items-center justify-between">
+              <span>Subscribers</span>
+              <Link href={"/admin/users"} className="icon text-2xl">
+                arrow_right_alt
+              </Link>
+            </div>
           </div>
         </div>
       </div>

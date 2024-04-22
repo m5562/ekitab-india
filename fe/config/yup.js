@@ -21,7 +21,7 @@ const registerSchema = yup.object().shape({
 const loginSchema = yup.object().shape({
   email: yup
     .string()
-    .email("This must be a string")
+    .email("This must be a valid email.")
     .required("This field is required."),
   password: yup.string().required("This is not an optional field."),
 });

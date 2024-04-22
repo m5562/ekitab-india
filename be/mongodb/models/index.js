@@ -32,4 +32,12 @@ const userModel = mongoose.Schema({
   },
 });
 
-export default mongoose.model("UserCred", userModel);
+const admincreads = mongoose.Schema({
+  name: String,
+  email: String,
+  password: String,
+});
+
+const userSchema = mongoose.model("UserCred", userModel);
+const adminSchema = mongoose.model("adminCreds", admincreads);
+export { userSchema, adminSchema };
