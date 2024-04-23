@@ -1,11 +1,21 @@
 import { mongoConnect } from "./connection.js";
-import { adminSchema, userSchema } from "./models/index.js";
+import {
+  adminSchema,
+  userSchema,
+  questionSetSchema,
+  questionSchema,
+} from "./models/index.js";
 import { createHash, compareHash } from "./../helpers/bcrypt.js";
 
 mongoConnect();
 
 const findUserByEmail = async (email) => {
   return await userSchema.findOne({ email });
+};
+
+const findAdmins = async () => {
+  const admins = await adminSchema.find();
+  console.log(admins);
 };
 
 const createUserByEmailAndPassword = async (name, email, password) => {
@@ -45,9 +55,18 @@ const saveAdmin = async ({ email, name, password }) => {
   const data = await new adminSchema({ email, name, password });
   return await data.save();
 };
+
+const createQuestion = async (question) => {
+  const que = await new questionSetSchema(question);
+  console.log(que);
+  return await que.save();
+};
+
 export {
   createUserByEmailAndPassword,
   saveAdmin,
   findUserByEmail,
   findAllUser,
+  findAdmins,
+  createQuestion,
 };

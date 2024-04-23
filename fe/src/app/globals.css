@@ -42,6 +42,9 @@
     padding: 6px 12px;
   }
 
+  input[type="text"] {
+    outline: none;
+  }
   .input:focus {
     outline: rgb(123, 2, 210);
   }
@@ -54,10 +57,10 @@
   .btn.primary {
     color: #fff;
   }
-  .inp-error{
+  .inp-error {
     border-color: rgb(190, 0, 0);
   }
-  .error-msg{
+  .error-msg {
     font-size: 0.7rem;
     margin-top: 4px;
     color: rgb(255, 65, 65);

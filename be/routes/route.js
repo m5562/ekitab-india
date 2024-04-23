@@ -4,6 +4,8 @@ import {
   createUserByEmailAndPassword,
   findAllUser,
   saveAdmin,
+  findAdmins,
+  createQuestion,
 } from "../mongodb/operations.js";
 import { authenticate } from "../middlewares/authenticate.js";
 import { authorize } from "../middlewares/authorize.js";
@@ -54,15 +56,15 @@ router.get("/admin/allusers", AdminAuthourization, (req, res) => {
   });
 });
 
-// router.post("/test", (req, res) => {
-//   const { email, password } = req.body;
-//   // saveTodb({email, name, password})
-//   if(isAdmin(email, password)){
-//     res.redirect("/admin")
-//   }
-// });
+router.post("/admin/addQuestion", (req, res) => {
+  const data = req.body.questions;
+  createQuestion(data).then((responce) => {
+    // console.log(responce);
+    res.send(responce);
+  });
+});
 
-router.get("/thomas", authorize, (req, res) => {
+router.post("/thomas", (req, res) => {
   const prompt = req.body.prompt;
   magix(prompt)
     .then((responce) => {

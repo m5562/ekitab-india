@@ -15,9 +15,9 @@ const Question = ({ currentQuestion, index, optionIndex }) => {
         </div>
       </div>
       <div className="grow">
-        <div>{currentQuestion.qtext}</div>
+        {/* <div>{currentQuestion.qtext}</div> */}
         <div className="options flex flex-col gap-2 mt-4">
-          {currentQuestion.options.map((opt, ind) => (
+          {currentQuestion && currentQuestion.options.map((opt, ind) => (
             <div
               key={ind}
               className={`p-4 rounded-lg bg-zinc-100 border border-solid ${
