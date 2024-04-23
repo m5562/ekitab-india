@@ -73,7 +73,36 @@
       transparent
     );
   }
-
+  .styled-logo {
+    color: transparent;
+    background: -webkit-linear-gradient(
+      16deg,
+      #4285f4 0,
+      #9b72cb 25%,
+      #d96570 50%,
+      #9b72cb 64%,
+      #d96570 85%
+    );
+    background: linear-gradient(
+      74deg,
+      #4285f4 0,
+      #9b72cb 25%,
+      #d96570 50%,
+      #9b72cb 64%,
+      #d96570 85%
+    );
+    background-size: 400% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 900;
+  }
+  .pattern {
+    background-color: #e5e5f7;
+    opacity: 0.8;
+    background-image: radial-gradient(#444cf7 0.5px, #e5e5f7 0.5px);
+    background-size: 10px 10px;
+  }
   /* radio button */
   [type="radio"]:checked,
   [type="radio"]:not(:checked) {

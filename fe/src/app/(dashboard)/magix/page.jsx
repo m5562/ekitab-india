@@ -13,8 +13,9 @@ const page = () => {
         width={150}
         alt="thomas"
       ></Image>
-      <p className="mt-5">
-       {/* replace this with your text */}
+      <p className="mt-5 styled-logo max-w-96">
+        Stuck on a study problem? Ask Thomas, your AI study buddy. Get unstuck
+        and ace your exams!
       </p>
       <button
         className="mt-4 rounded-lg flex items-center bg-bae-600 text-white px-4 py-2"

@@ -68,7 +68,7 @@ router.post("/thomas", (req, res) => {
   const prompt = req.body.prompt;
   magix(prompt)
     .then((responce) => {
-      res.status(200).send(responce);
+      res.send(responce);
     })
     .catch(console.log);
 });
